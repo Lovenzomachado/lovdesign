@@ -1,344 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A&D Estética - Seja sua melhor versão</title>
-    <meta name="description" content="Tratamentos de beleza personalizados com profissionais especializados">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-    
-    <!-- Styles -->
+    <title>Medicia - Dental Care</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <!-- Logo -->
-            <div class="logo animate-fade-in">
-                A&D<sup>™</sup>
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">Medicia</span>
             </div>
-
-            <!-- Desktop Navigation -->
-            <nav class="nav-desktop">
-                <a href="#inicio" class="nav-link animate-fade-in-up" style="animation-delay: 0ms;">Início</a>
-                <a href="#servicos" class="nav-link animate-fade-in-up" style="animation-delay: 100ms;">Serviços</a>
-                <a href="#sobre" class="nav-link animate-fade-in-up" style="animation-delay: 200ms;">Sobre</a>
-                <a href="#depoimentos" class="nav-link animate-fade-in-up" style="animation-delay: 300ms;">Depoimentos</a>
-                <a href="#contato" class="nav-link animate-fade-in-up" style="animation-delay: 400ms;">Contato</a>
-            </nav>
-
-            <!-- CTA Button -->
-            <div class="header-cta">
-                <button class="btn-primary animate-fade-in-up" style="animation-delay: 500ms;">
-                    Agendar
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <nav class="mobile-nav">
-                <a href="#inicio" class="mobile-nav-link">Início</a>
-                <a href="#servicos" class="mobile-nav-link">Serviços</a>
-                <a href="#sobre" class="mobile-nav-link">Sobre</a>
-                <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
-                <a href="#contato" class="mobile-nav-link">Contato</a>
-                <button class="btn-primary mobile-cta">
-                    Agendar
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <!-- Background decoration -->
-        <div class="hero-bg">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-        </div>
-
-        <div class="hero-content">
-            <!-- Subtitle -->
-            <p class="hero-subtitle animate-fade-in-up" style="animation-delay: 300ms;">
-                Estética & Beleza
-            </p>
-
-            <!-- Main heading -->
-            <h1 class="hero-title">
-                <span class="hero-word animate-slide-up" style="animation-delay: 500ms;">Seja</span>
-                <span class="hero-word animate-slide-up" style="animation-delay: 700ms;">sua</span>
-                <br>
-                <span class="hero-word hero-word-italic animate-slide-up" style="animation-delay: 900ms;">melhor</span>
-                <span class="hero-word animate-slide-up" style="animation-delay: 1100ms;">versão</span>
-            </h1>
-
-            <!-- Description -->
-            <p class="hero-description animate-fade-in-up" style="animation-delay: 1300ms;">
-                Descubra tratamentos personalizados que realçam sua beleza natural com técnicas modernas e profissionais especializados
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="hero-buttons animate-fade-in-up" style="animation-delay: 1500ms;">
-                <button class="btn-primary btn-large">
-                    Agendar Consulta
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
-                <button class="btn-secondary btn-large">
-                    Ver Serviços
-                </button>
-            </div>
-
-            <!-- Floating elements -->
-            <div class="floating-element floating-1"></div>
-            <div class="floating-element floating-2"></div>
-            <div class="floating-element floating-3"></div>
-            <div class="floating-element floating-4"></div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator animate-fade-in" style="animation-delay: 2000ms;">
-            <span class="scroll-text">Role para baixo</span>
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    A dream<br>
+                    smile is a<br>
+                    reality.
+                </h1>
+                <div class="hero-image">
+                    <img src="/images/hero-smile.png" alt="Beautiful smile" class="smile-image">
+                </div>
+                <button class="btn btn-primary book-btn">Book Now</button>
             </div>
         </div>
     </section>
 
-    <!-- Image Gallery -->
-    <section class="gallery">
+    <!-- Discover Section -->
+    <section class="discover">
         <div class="container">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300&h=400&fit=crop" alt="Tratamentos Capilares">
-                    <div class="gallery-overlay">
-                        <p>Tratamentos Capilares</p>
-                    </div>
+            <h2 class="section-title">Discover</h2>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid">
+        <div class="container">
+            <!-- Dental Implants -->
+            <div class="service-card dental-implants">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5C15 5 12 8 12 13V27C12 32 15 35 20 35C25 35 28 32 28 27V13C28 8 25 5 20 5Z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="20" cy="15" r="3" fill="currentColor"/>
+                        <circle cx="20" cy="25" r="3" fill="currentColor"/>
+                    </svg>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=300&h=400&fit=crop" alt="Nail Art">
-                    <div class="gallery-overlay">
-                        <p>Nail Art</p>
-                    </div>
+                <h3 class="service-title">Dental<br>Implants</h3>
+            </div>
+
+            <!-- Aesthetic Care -->
+            <div class="service-card aesthetic-care">
+                <div class="service-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M8 20C8 15 12 10 20 10C28 10 32 15 32 20C32 25 28 30 20 30C12 30 8 25 8 20Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M15 18L18 21L25 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=300&h=400&fit=crop" alt="Ambiente Profissional">
-                    <div class="gallery-overlay">
-                        <p>Ambiente Profissional</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=400&fit=crop" alt="Cílios & Sobrancelhas">
-                    <div class="gallery-overlay">
-                        <p>Cílios & Sobrancelhas</p>
-                    </div>
-                </div>
+                <h3 class="service-title">Aesthetic<br>Care</h3>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="servicos" class="services-intro">
+    <section class="services" id="services">
         <div class="container">
-            <p class="section-subtitle">Nossos Serviços</p>
-            <h2 class="section-title">
-                Oferecemos uma variedade<br>
-                de serviços para realçar sua<br>
-                <span class="text-italic">beleza natural</span>
-            </h2>
-            <p class="section-description">
-                Cada tratamento é personalizado para atender suas necessidades específicas, utilizando técnicas modernas e produtos de alta qualidade.
-            </p>
+            <h2 class="section-title">Services</h2>
         </div>
     </section>
 
-    <!-- Detailed Services -->
-    <section class="services-detailed">
+    <!-- Experienced Care -->
+    <section class="experienced-care">
         <div class="container">
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>✨</span>
-                    </div>
-                    <h3 class="service-title">Tratamentos Faciais</h3>
-                    <p class="service-description">
-                        Limpeza de pele, hidratação profunda, peeling e tratamentos anti-idade personalizados para seu tipo de pele.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>💅</span>
-                    </div>
-                    <h3 class="service-title">Manicure & Pedicure</h3>
-                    <p class="service-description">
-                        Cuidados completos para unhas, nail art personalizada e tratamentos para manter suas unhas sempre perfeitas.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>👁️</span>
-                    </div>
-                    <h3 class="service-title">Cílios & Sobrancelhas</h3>
-                    <p class="service-description">
-                        Extensão de cílios, design de sobrancelhas, micropigmentação e todos os cuidados para realçar seu olhar.
-                    </p>
+            <div class="care-content">
+                <h3 class="care-title">Experienced Care</h3>
+                <div class="care-image">
+                    <img src="/images/experienced-care.png" alt="Experienced dental care">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="about">
+    <!-- Specialist Section -->
+    <section class="specialist">
         <div class="container">
-            <h2 class="section-title">Sobre A&D</h2>
-            <p class="section-description">
-                Com mais de 10 anos de experiência, nossa equipe de profissionais especializados está dedicada a proporcionar tratamentos de beleza de alta qualidade, utilizando as melhores técnicas e produtos do mercado.
-            </p>
-
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=500&fit=crop" alt="Nossa equipe profissional">
+            <div class="specialist-content">
+                <h3 class="specialist-title">Specialist</h3>
+                <div class="specialist-image">
+                    <img src="/images/specialist-dentist.png" alt="Dental specialist">
                 </div>
-                <div class="about-text">
-                    <h3 class="about-subtitle">Nossa Missão</h3>
-                    <p class="about-paragraph">
-                        Acreditamos que cada pessoa possui uma beleza única. Nossa missão é realçar essa beleza natural através de tratamentos personalizados e cuidados especializados.
-                    </p>
-                    <p class="about-paragraph">
-                        Utilizamos apenas produtos de alta qualidade e técnicas modernas para garantir os melhores resultados e a satisfação completa de nossos clientes.
-                    </p>
+                <p class="specialist-description">
+                    Our experienced dental specialists provide comprehensive care with the latest techniques and technology.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Procedures Gallery -->
+    <section class="procedures">
+        <div class="container">
+            <div class="procedures-grid">
+                <div class="procedure-item">
+                    <img src="/images/dental-procedure-1.png" alt="Dental procedure">
+                </div>
+                <div class="procedure-item">
+                    <img src="/images/dental-procedure-2.png" alt="Dental examination">
+                </div>
+                <div class="procedure-item">
+                    <img src="/images/team-consultation.png" alt="Team consultation">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="depoimentos" class="testimonials">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">O que dizem nossos clientes</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Excelente atendimento! A equipe é super profissional e o resultado dos tratamentos sempre supera minhas expectativas. Recomendo muito!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <p class="author-name">Maria Silva</p>
-                            <p class="author-role">Cliente há 2 anos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Ambiente acolhedor e tratamentos de qualidade. Sempre saio de lá me sentindo renovada e mais confiante. A A&D é simplesmente perfeita!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <p class="author-name">Ana Costa</p>
-                            <p class="author-role">Cliente há 3 anos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <span>★★★★★</span>
-                    </div>
-                    <p class="testimonial-text">
-                        "Profissionais extremamente qualificados e produtos de primeira linha. Cada visita é uma experiência única de cuidado e bem-estar."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <p class="author-name">Carla Santos</p>
-                            <p class="author-role">Cliente há 1 ano</p>
-                        </div>
-                    </div>
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "Excellent service! The team at Medicia made me feel comfortable throughout my treatment. Highly recommended!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <span class="author-name">Sarah Johnson</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contato" class="contact">
+    <!-- Book Appointment -->
+    <section class="book-appointment">
         <div class="container">
-            <h2 class="section-title">Agende seu horário</h2>
-            <p class="section-description">
-                Entre em contato conosco e descubra como podemos realçar sua beleza natural
-            </p>
+            <h2 class="appointment-title">Book An<br>Appointment</h2>
+            <form class="appointment-form" id="appointmentForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <select required>
+                    <option value="">Select Service</option>
+                    <option value="dental-implants">Dental Implants</option>
+                    <option value="aesthetic-care">Aesthetic Care</option>
+                    <option value="general-checkup">General Checkup</option>
+                </select>
+                <textarea placeholder="Message (Optional)"></textarea>
+                <button type="submit" class="btn btn-primary">Book Appointment</button>
+            </form>
+        </div>
+    </section>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <span>📍</span>
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What services do you offer?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer comprehensive dental services including dental implants, aesthetic care, general dentistry, and specialized treatments.</p>
                     </div>
-                    <h3 class="contact-title">Endereço</h3>
-                    <p class="contact-text">
-                        Rua das Flores, 123<br>
-                        Centro - São Paulo, SP
-                    </p>
                 </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <span>📞</span>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I book an appointment?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can book an appointment through our online form above or call us directly at our clinic.</p>
                     </div>
-                    <h3 class="contact-title">Telefone</h3>
-                    <p class="contact-text">
-                        (11) 9999-9999<br>
-                        (11) 8888-8888
-                    </p>
                 </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <span>⏰</span>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you accept insurance?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we accept most major dental insurance plans. Please contact us to verify your coverage.</p>
                     </div>
-                    <h3 class="contact-title">Horário</h3>
-                    <p class="contact-text">
-                        Seg - Sex: 9h às 19h<br>
-                        Sáb: 9h às 17h
-                    </p>
                 </div>
             </div>
-
-            <button class="btn-primary btn-large contact-cta">
-                Agendar Consulta
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
         </div>
     </section>
 
@@ -346,51 +207,20 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        A&D<sup>™</sup>
-                    </div>
-                    <p class="footer-description">
-                        Realçando sua beleza natural com tratamentos personalizados e profissionais especializados.
-                    </p>
+                <h3 class="footer-title">Based In<br>London</h3>
+                <div class="footer-info">
+                    <p>123 Dental Street<br>London, UK SW1A 1AA</p>
+                    <p>Phone: +44 20 1234 5678<br>Email: info@medicia.com</p>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-title">Serviços</h4>
-                    <ul class="footer-links">
-                        <li><a href="#servicos">Tratamentos Faciais</a></li>
-                        <li><a href="#servicos">Manicure & Pedicure</a></li>
-                        <li><a href="#servicos">Cílios & Sobrancelhas</a></li>
-                        <li><a href="#servicos">Massagens</a></li>
-                    </ul>
+                <div class="footer-social">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Twitter</a>
                 </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-title">Contato</h4>
-                    <ul class="footer-links">
-                        <li>Rua das Flores, 123</li>
-                        <li>(11) 9999-9999</li>
-                        <li>contato@aedestetica.com</li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4 class="footer-title">Redes Sociais</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">WhatsApp</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 A&D Estética. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
