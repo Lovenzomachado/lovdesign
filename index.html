@@ -1,233 +1,460 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicia - Dental Care</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tm5ewxpbf4");
+    <title>Junte Mais | Estratégia & Criatividade</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wght@200..900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['"Mona Sans"', 'sans-serif'],
+                    bricolage: ['"Bricolage Grotesque"', 'sans-serif'],
+                    handwritten: ['"Caveat"', 'cursive'],
+                },
+                colors: {
+                    neonGreen: '#CCFF00',
+                    neonPurple: '#E0C3FC',
+                }
+            }
+        }
+    }
 </script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .grain-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E");
+        }
+        @keyframes spin-linear {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-linear 10s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-content {
+            animation: marquee 20s linear infinite;
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px #F2F2F2;
+        }
+        .reveal-left {
+            transform: translateX(-100px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+        .reveal-left.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .reveal-right {
+            transform: translateX(100px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+        .reveal-right.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .reveal-scale {
+            transform: scale(0);
+            opacity: 0;
+            transition: all 1s ease-out 0.2s;
+        }
+        .reveal-scale.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .hero-text {
+            transition: color 0.3s ease;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .animate-expand {
+            width: 0%;
+            transition: width 0.8s ease-out;
+        }
+        .animate-expand.visible {
+            width: 100%;
+        }
+        .mobile-menu-link {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease-out;
+        }
+        #mobile-menu.active .mobile-menu-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #mobile-menu.active .mobile-menu-link:nth-child(1) { transition-delay: 0.1s; }
+        #mobile-menu.active .mobile-menu-link:nth-child(2) { transition-delay: 0.2s; }
+        #mobile-menu.active .mobile-menu-link:nth-child(3) { transition-delay: 0.3s; }
+        #mobile-menu.active .mobile-menu-link:nth-child(4) { transition-delay: 0.4s; }
+        .cursor-none-area {
+            cursor: none;
+        }
+        @media (max-width: 768px) {
+            .cursor-none-area {
+                cursor: auto;
+            }
+            #custom-cursor {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="logo">Medicia</span>
-            </div>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-        </div>
+<body class="font-sans bg-[#050505] min-h-screen text-[#F2F2F2] selection:bg-[#CCFF00] selection:text-black overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center" id="main-header">
+        <a href="#hero" class="text-2xl font-bold tracking-tighter uppercase text-[#F2F2F2]">Junte Mais</a>
+        
+        <nav class="hidden md:flex gap-8">
+            <a href="#problem" class="text-sm font-bold uppercase tracking-widest text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">O Problema</a>
+            <a href="#methodology" class="text-sm font-bold uppercase tracking-widest text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">Metodologia</a>
+            <a href="#authority-section" class="text-sm font-bold uppercase tracking-widest text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">O que fazemos</a>
+            <a href="#contact" class="text-sm font-bold uppercase tracking-widest text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">Contato</a>
+        </nav>
+
+        <button class="md:hidden text-[#F2F2F2] z-50 relative" id="mobile-menu-button">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    A dream<br>
-                    smile is a<br>
-                    reality.
-                </h1>
-                <div class="hero-image">
-                    <img src="/images/hero-smile.png" alt="Beautiful smile" class="smile-image">
-                </div>
-                <button class="btn btn-primary book-btn">Book Now</button>
+    <div class="fixed inset-0 bg-[#050505] z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500" id="mobile-menu">
+        <nav class="flex flex-col gap-6 text-center">
+            <a href="#problem" class="mobile-menu-link text-4xl font-bold uppercase tracking-wider text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">O Problema</a>
+            <a href="#methodology" class="mobile-menu-link text-4xl font-bold uppercase tracking-wider text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">Metodologia</a>
+            <a href="#authority-section" class="mobile-menu-link text-4xl font-bold uppercase tracking-wider text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">O que fazemos</a>
+            <a href="#contact" class="mobile-menu-link text-4xl font-bold uppercase tracking-wider text-[#F2F2F2] hover:text-[#CCFF00] transition-colors">Contato</a>
+        </nav>
+        <div class="flex gap-6 mt-8">
+            <a href="#" class="text-[#F2F2F2] hover:text-[#E0C3FC] transition-colors">
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+            </a>
+            <a href="#" class="text-[#F2F2F2] hover:text-[#E0C3FC] transition-colors">
+                <i data-lucide="linkedin" class="w-6 h-6"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-8 animate-spin-slow opacity-20">
+            <i data-lucide="asterisk" class="w-24 h-24 text-[#CCFF00]"></i>
+        </div>
+    </div>
+
+    <div class="grain-overlay fixed inset-0 pointer-events-none z-50 opacity-30 mix-blend-overlay"></div>
+
+    <main class="relative z-10">
+        
+        <section class="h-screen relative flex flex-col items-center justify-center py-20 overflow-hidden transition-colors duration-500 ease-in-out" id="hero">
+            
+            <div class="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500" id="hero-bg-strategy">
+                <img src="https://i.ibb.co/zVqmH1x0/mulheres-junte-mais.webp?q=80&w=663&auto=format&fit=crop" alt="Strategy Background" class="w-full h-full object-cover grayscale blur-[2px] md:blur-none">
+                <div class="absolute inset-0 bg-black/75 md:bg-transparent grain-overlay"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Discover Section -->
-    <section class="discover">
-        <div class="container">
-            <h2 class="section-title">Discover</h2>
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section class="services-grid">
-        <div class="container">
-            <!-- Dental Implants -->
-            <div class="service-card dental-implants">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path d="M20 5C15 5 12 8 12 13V27C12 32 15 35 20 35C25 35 28 32 28 27V13C28 8 25 5 20 5Z" stroke="currentColor" stroke-width="2"/>
-                        <circle cx="20" cy="15" r="3" fill="currentColor"/>
-                        <circle cx="20" cy="25" r="3" fill="currentColor"/>
-                    </svg>
-                </div>
-                <h3 class="service-title">Dental<br>Implants</h3>
+            <div class="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500" id="hero-bg-creativity">
+                <img src="https://i.ibb.co/LD2L6mys/mulheres-junte-mais.webp?q=80&w=663&auto=format&fit=crop" alt="Strategy Background" class="w-full h-full object-cover grayscale blur-[2px] md:blur-none">
+                <div class="absolute inset-0 bg-black/75 md:bg-transparent grain-overlay"></div>
             </div>
 
-            <!-- Aesthetic Care -->
-            <div class="service-card aesthetic-care">
-                <div class="service-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path d="M8 20C8 15 12 10 20 10C28 10 32 15 32 20C32 25 28 30 20 30C12 30 8 25 8 20Z" stroke="currentColor" stroke-width="2"/>
-                        <path d="M15 18L18 21L25 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+            <div class="flex flex-col w-full max-w-6xl gap-8 md:gap-4 relative z-10">
+                <div class="self-center md:self-start relative z-10 hero-text-container" data-side="strategy">
+                    <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold font-bricolage tracking-tighter uppercase transition-colors duration-300 cursor-pointer text-[#F2F2F2] reveal-left hero-text text-center md:text-left">
+    Estratégia
+</h1>
                 </div>
-                <h3 class="service-title">Aesthetic<br>Care</h3>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Services</h2>
-        </div>
-    </section>
-
-    <!-- Experienced Care -->
-    <section class="experienced-care">
-        <div class="container">
-            <div class="care-content">
-                <h3 class="care-title">Experienced Care</h3>
-                <div class="care-image">
-                    <img src="/images/experienced-care.png" alt="Experienced dental care">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Specialist Section -->
-    <section class="specialist">
-        <div class="container">
-            <div class="specialist-content">
-                <h3 class="specialist-title">Specialist</h3>
-                <div class="specialist-image">
-                    <img src="/images/specialist-dentist.png" alt="Dental specialist">
-                </div>
-                <p class="specialist-description">
-                    Our experienced dental specialists provide comprehensive care with the latest techniques and technology.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Procedures Gallery -->
-    <section class="procedures">
-        <div class="container">
-            <div class="procedures-grid">
-                <div class="procedure-item">
-                    <img src="/images/dental-procedure-1.png" alt="Dental procedure">
-                </div>
-                <div class="procedure-item">
-                    <img src="/images/dental-procedure-2.png" alt="Dental examination">
-                </div>
-                <div class="procedure-item">
-                    <img src="/images/team-consultation.png" alt="Team consultation">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-text">
-                    "Excellent service! The team at Medicia made me feel comfortable throughout my treatment. Highly recommended!"
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar"></div>
-                    <span class="author-name">Sarah Johnson</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book Appointment -->
-    <section class="book-appointment">
-        <div class="container">
-            <h2 class="appointment-title">Book An<br>Appointment</h2>
-            <form class="appointment-form" id="appointmentForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <select required>
-                    <option value="">Select Service</option>
-                    <option value="dental-implants">Dental Implants</option>
-                    <option value="aesthetic-care">Aesthetic Care</option>
-                    <option value="general-checkup">General Checkup</option>
-                </select>
-                <textarea placeholder="Message (Optional)"></textarea>
-                <button type="submit" class="btn btn-primary">Book Appointment</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What services do you offer?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We offer comprehensive dental services including dental implants, aesthetic care, general dentistry, and specialized treatments.</p>
+                <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none md:pointer-events-auto">
+                    <div class="reveal-scale">
+                        <div class="text-[#F2F2F2] animate-spin-slow opacity-50 md:opacity-100 hero-text-target transition-colors duration-300">
+                            <i data-lucide="asterisk" class="w-20 h-20 md:w-32 md:h-32 lg:w-40 lg:h-40"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do I book an appointment?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>You can book an appointment through our online form above or call us directly at our clinic.</p>
-                    </div>
+
+                <div class="self-center md:self-end relative z-10 hero-text-container" data-side="creativity">
+                    <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold font-bricolage tracking-tighter uppercase transition-colors duration-300 cursor-pointer md:text-right text-[#F2F2F2] reveal-right hero-text text-center">
+    Criatividade
+</h1>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Do you accept insurance?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, we accept most major dental insurance plans. Please contact us to verify your coverage.</p>
+            </div>
+
+            <div class="mt-16 md:mt-24 z-10 reveal-scale delay-200 w-full flex items-center justify-center px-4">
+                <a href="https://wa.me/5551991066818?text=Ol%C3%A1!%20Estou%20precisando%20de%20ajuda%20com%20a%20minha%20rede%20social%20%F0%9F%A7%A1" class="group relative px-6 md:px-8 py-3 md:py-4 rounded-full border-2 border-[#F2F2F2] overflow-hidden transition-all duration-300 hover:border-[#CCFF00] flex items-center gap-2">
+                    <div class="absolute inset-0 w-full h-full bg-[#CCFF00] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    <span class="relative font-bold text-base md:text-lg text-[#F2F2F2] group-hover:text-[#050505] transition-colors duration-300 whitespace-nowrap">
+                        Vamos construir autoridade
+                    </span>
+                    <i data-lucide="arrow-right" class="relative w-5 h-5 text-[#F2F2F2] group-hover:text-[#050505] transition-colors duration-300"></i>
+                </a>
+            </div>
+        </section>
+
+        <div class="bg-[#E0C3FC] py-4 overflow-hidden border-y border-black">
+            <div class="marquee-content flex whitespace-nowrap text-2xl md:text-4xl font-bold uppercase tracking-wider text-[#050505]">
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+                <span class="mr-12">Estratégia • Conexões • Sucesso • Junte Mais+</span>
+            </div>
+        </div>
+
+        <section class="bg-[#050505] text-[#F2F2F2] py-24 md:py-32 overflow-hidden" id="problem">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center scroll-reveal">
+                        <h2 class="text-sm md:text-base text-[#CCFF00] font-bold uppercase tracking-widest mb-4 border border-[#CCFF00] inline-block px-3 py-1 rounded-full w-max">
+                            O Problema (Anti-Trend)
+                        </h2>
+                        <h3 class="text-4xl md:text-6xl font-bold leading-tight mb-8">
+                            O digital virou um <span class="text-[#E0C3FC]">palco de trends</span>.
+                        </h3>
+                        <p class="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed">
+                            Todo mundo fazendo o mesmo reels. A mesma música. A mesma dancinha. A gente decidiu mudar isso. Sua marca merece mais que apenas seguir o fluxo.
+                        </p>
+                        <div class="relative inline-block w-max">
+                            <svg width="60" height="60" viewBox="0 0 100 100" class="absolute -top-8 -right-8 text-[#F2F2F2] rotate-12">
+                                <path d="M10,80 Q50,20 80,50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                                <path d="M80,50 L70,45 L75,60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <p class="font-handwritten text-3xl md:text-4xl text-[#E0C3FC] rotate-[-2deg]">
+                                Sua marca não é plateia, <br/>é <span class="text-[#CCFF00] font-bold bg-black px-1">protagonista</span>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 relative scroll-reveal delay-200">
+                        <div class="relative z-10 rounded-2xl overflow-hidden border border-[#333]">
+                            <img src="https://images.unsplash.com/photo-1595769816263-9b910be24d5f?q=80&w=2070&auto=format&fit=crop" alt="Cinema Chairs" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3 class="footer-title">Based In<br>London</h3>
-                <div class="footer-info">
-                    <p>123 Dental Street<br>London, UK SW1A 1AA</p>
-                    <p>Phone: +44 20 1234 5678<br>Email: info@medicia.com</p>
+        <section class="bg-[#F2F2F2] text-[#050505] relative overflow-hidden py-24" id="methodology">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="mb-24 scroll-reveal">
+                    <h2 class="text-6xl md:text-8xl font-bold tracking-tighter leading-none">
+                        Pra nós, é <br />
+                        <span class="relative inline-block">
+                            parceria
+                            <span class="absolute bottom-0 left-0 h-4 bg-[#CCFF00] -z-10 w-full animate-expand"></span>
+                        </span> <br />
+                        de verdade.
+                    </h2>
                 </div>
-                <div class="footer-social">
-                    <a href="#" class="social-link">Facebook</a>
-                    <a href="#" class="social-link">Instagram</a>
-                    <a href="#" class="social-link">Twitter</a>
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/3">
+                        <div class="sticky top-24 p-8 bg-[#CCFF00] rounded-[2rem] border-2 border-black rotate-2 hover:rotate-0 transition-transform duration-300">
+                            <h3 class="text-2xl font-bold mb-4 uppercase">Como trabalhamos</h3>
+                            <ul class="space-y-4 font-medium text-lg">
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-black rounded-full"></div> Imersão Total</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-black rounded-full"></div> Co-criação</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-black rounded-full"></div> Transparência</li>
+                                <li class="flex items-center gap-2"><div class="w-2 h-2 bg-black rounded-full"></div> Dados + Feeling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 overflow-hidden" id="methodology-slider-container">
+                        <div class="flex gap-8 w-[150%] transition-transform duration-100 ease-out" id="methodology-slider">
+                            <div class="w-full aspect-[4/3] bg-black text-[#F2F2F2] p-8 rounded-2xl flex items-center justify-center">
+                                <p class="text-3xl md:text-4xl font-bold text-center">"Não somos mais uma agência,<br/>somos a última."</p>
+                            </div>
+                            <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                                <img src="https://i.ibb.co/PzVKCf7n/img-2180.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Team" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="mt-12 max-w-xl text-xl leading-relaxed scroll-reveal">
+                            <p>
+                                Acreditamos que as melhores ideias nascem da troca. Não entregamos apenas um PDF bonito; construímos sistemas visuais e estratégias que respiram a cultura da sua empresa.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
+        <section class="bg-[#050505] text-[#F2F2F2] py-20 relative cursor-none-area" id="authority-section">
+    <div id="custom-cursor" class="pointer-events-none fixed top-0 left-0 z-50 bg-[#050505] text-[#F2F2F2] border border-[#F2F2F2] px-4 py-2 rounded-xl rounded-bl-none whitespace-nowrap text-sm font-bold uppercase tracking-wider hidden transform transition-transform duration-75">
+        <span id="cursor-text"></span>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto">
+            
+            <a href="https://wa.me/5551998638144?text=Olá!%20Estou%20precisando%20de%20Design%20💚" 
+               target="_blank" rel="noopener noreferrer" 
+               class="group relative bg-[#E0C3FC] rounded-2xl p-6 text-[#050505] flex flex-col justify-center transition-all duration-300 hover:scale-[1.01] cursor-trigger min-h-[180px]" 
+               data-cursor="Design">
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2">Identidade Visual e Rebranding</h3>
+                <p class="text-lg font-medium opacity-90">Identidade que traduz essência, não só estética.</p>
+            </a>
+
+            <a href="https://wa.me/5551998638144?text=Olá!%20Estou%20precisando%20de%20Audiovisual%20📸" 
+               target="_blank" rel="noopener noreferrer" 
+               class="group relative bg-[#FF6B6B] rounded-2xl p-6 text-[#050505] flex flex-col justify-center transition-all duration-300 hover:scale-[1.01] cursor-trigger min-h-[180px]" 
+               data-cursor="Audiovisual">
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2">Audiovisual</h3>
+                <p class="text-lg font-medium opacity-90">Fotos e vídeos que constroem narrativa.</p>
+            </a>
+
+            <a href="https://wa.me/5551991066818?text=Olá!%20Estou%20precisando%20de%20ajuda%20com%20a%20minha%20rede%20social%20🧡" 
+               target="_blank" rel="noopener noreferrer" 
+               class="group relative border border-[#333] bg-[#0a0a0a] rounded-2xl p-6 flex flex-col justify-center transition-all duration-300 hover:border-[#F2F2F2] hover:scale-[1.01] cursor-trigger min-h-[180px]" 
+               data-cursor="Social Media">
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#F2F2F2]">
+                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-[#F2F2F2]">Gestão de Redes</h3>
+                <p class="text-lg text-[#888] group-hover:text-[#F2F2F2] transition-colors">Estratégia que gera autoridade, não likes.</p>
+            </a>
+
+            <a href="https://wa.me/5551998638144?text=Olá!%20Estou%20precisando%20de%20Tráfego%20Pago%20🚀" 
+               target="_blank" rel="noopener noreferrer" 
+               class="group relative rounded-2xl overflow-hidden cursor-trigger flex flex-col justify-center p-6 min-h-[180px] transition-all duration-300 hover:scale-[1.01]" 
+               data-cursor="Ads">
+                <img src="https://images.unsplash.com/photo-1634326080825-985cfc816db6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" 
+                     alt="Tráfego Pago" 
+                     class="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-500">
+                <div class="absolute inset-0 bg-black/60"></div>
+                <div class="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity text-white">
+                    <i data-lucide="arrow-up-right" class="w-6 h-6"></i>
+                </div>
+                <div class="relative z-10 text-white">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2">Tráfego Pago</h3>
+                    <p class="text-lg text-[#ddd]">Investimento guiado por estratégia.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+        <section class="relative min-h-screen bg-[#111] overflow-hidden flex flex-col justify-center items-center" id="social-proof">
+            <div id="rising-sun" class="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 transition-transform duration-100 ease-out translate-y-full opacity-0">
+                <div class="w-[40vw] h-[40vw] bg-[#E0C3FC] rounded-full blur-[20px] md:blur-[60px]"></div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-[40vh] md:h-[60vh] z-10 pointer-events-none text-[#050505]">
+                <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 600">
+                    <path d="M0,600 L0,200 C200,300 400,100 720,250 C1000,400 1200,150 1440,300 L1440,600 Z" fill="currentColor" />
+                </svg>
+            </div>
+            <div class="relative z-20 container mx-auto px-4 text-center mt-0 md:mt-[-10vh]">
+                <h2 class="text-6xl md:text-8xl font-bold font-sans text-[#F2F2F2] mb-12 scroll-reveal">
+    Marca forte <br />pensa <span class="italic text-[#E0C3FC] underline decoration-[#E0C3FC] decoration-4 underline-offset-8">junto</span>.
+</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <!-- Depoimento 1 -->
+    <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-[#333] text-left scroll-reveal">
+        <p class="text-[#ccc] text-lg mb-4">"A Junte Mais mudou nossa percepção de valor. Não foi só design, foi posicionamento."</p>
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+            <div>
+                <p class="text-white font-bold text-sm">Ana Silva</p>
+                <p class="text-gray-400 text-xs">CMO @ TechStart</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Depoimento 2 -->
+    <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-[#333] text-left scroll-reveal delay-100">
+        <p class="text-[#ccc] text-lg mb-4">"Profissionalismo e criatividade em cada entrega. Transformaram nossa identidade visual."</p>
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+            <div>
+                <p class="text-white font-bold text-sm">Carlos Mendes</p>
+                <p class="text-gray-400 text-xs">CEO @ InovaLab</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Depoimento 3 -->
+    <div class="bg-[#1a1a1a] p-6 rounded-2xl border border-[#333] text-left scroll-reveal delay-200">
+        <p class="text-[#ccc] text-lg mb-4">"Estratégia com propósito. Nossa presença digital nunca foi tão autêntica."</p>
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+            <div>
+                <p class="text-white font-bold text-sm">Marina Costa</p>
+                <p class="text-gray-400 text-xs">Diretora @ BrandLab</p>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </section>
+
+<footer class="bg-[#CCFF00] text-[#050505] min-h-screen flex flex-col justify-between p-8 md:p-12 relative overflow-hidden" id="contact">
+    <div class="flex-grow flex flex-col justify-center items-center text-center">
+        <h2 class="text-[15vw] leading-none font-bold tracking-tighter mb-8 scroll-reveal uppercase">Junte Mais!</h2>
+        <p class="text-xl md:text-3xl font-medium max-w-2xl mb-12 scroll-reveal delay-100">Cada marca é um projeto vivo. Vamos dar vida à sua?</p>
+        <div class="scroll-reveal delay-200">
+            <a href="https://wa.me/5551991066818?text=Ol%C3%A1!%20Estou%20precisando%20de%20ajuda%20com%20a%20minha%20rede%20social%20%F0%9F%A7%A1" target="_blank" rel="noopener noreferrer" class="group relative px-6 md:px-8 py-3 md:py-4 rounded-full border-2 border-[#050505] overflow-hidden transition-all duration-300 hover:border-[#050505] flex items-center gap-2">
+                <div class="absolute inset-0 w-full h-full bg-[#050505] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                <span class="relative font-bold text-base md:text-lg text-[#050505] group-hover:text-[#CCFF00] transition-colors duration-300 whitespace-nowrap">
+                    Vamos construir autoridade
+                </span>
+                <i data-lucide="arrow-right" class="relative w-5 h-5 text-[#050505] group-hover:text-[#CCFF00] transition-colors duration-300"></i>
+            </a>
+        </div>
+    </div>
+    <div class="flex justify-between items-end border-t border-[#050505]/20 pt-8 mt-12">
+        <div class="flex flex-col gap-2 font-medium">
+            <a href="https://www.instagram.com/junte.mais" class="hover:underline">Instagram</a>
+            <a href="https://www.linkedin.com/company/juntemais/?viewAsMember=true" class="hover:underline">LinkedIn</a>
+        </div>
+        <div class="animate-spin-slow">
+            <i data-lucide="asterisk" class="w-16 h-16"></i>
+        </div>
+    </div>
+</footer>
+    </main>
+
+    <!-- Link para o arquivo JS externo -->
     <script src="script.js"></script>
 </body>
 </html>
