@@ -101,7 +101,7 @@
       background: radial-gradient(circle at 60% 60%, rgba(232,200,240,.06), transparent 65%);
     }
 
-    .hero-content { max-width: 960px; position: relative; z-index: 2; }
+    .hero-content { max-width: 960px; position: relative; z-index: 1; }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -143,7 +143,7 @@
     .hero-stats {
       position: absolute; bottom: 3rem; left: 3rem;
       display: flex; gap: 3.5rem;
-      will-change: transform; z-index: 2;
+      will-change: transform;
     }
     .stat-num {
       font-size: clamp(1.8rem, 3vw, 2.8rem);
@@ -160,31 +160,8 @@
       display: flex; align-items: center; gap: .75rem;
       opacity: .3; font-size: .7rem;
       letter-spacing: .18em; text-transform: uppercase;
-      z-index: 2;
     }
     .scroll-hint-line { width: 40px; height: 1px; background: var(--text); }
-
-    /* ── DEPTH PHOTO ── */
-    .hero-photo {
-      position: absolute;
-      bottom: 0; right: 0;
-      width: clamp(340px, 42vw, 600px);
-      pointer-events: none;
-      z-index: 0;
-      mask-image: linear-gradient(to top, transparent 0%, black 22%, black 80%, transparent 100%),
-                  linear-gradient(to right, transparent 0%, black 18%);
-      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%, black 80%, transparent 100%),
-                          linear-gradient(to right, transparent 0%, black 18%);
-      mask-composite: intersect;
-      -webkit-mask-composite: source-in;
-    }
-    #depthCanvas {
-      display: block; width: 100%; height: auto;
-      opacity: .88;
-    }
-    @media (max-width: 768px) {
-      .hero-photo { width: 70vw; }
-    }
 
     /* ── TICKER ── */
     .ticker-wrap {
@@ -422,11 +399,6 @@
         <div class="stat-num"><span class="count-up" data-target="8">0</span></div>
         <div class="stat-label">Team size avg</div>
       </div>
-    </div>
-
-    <!-- DEPTH PHOTO -->
-    <div class="hero-photo">
-      <canvas id="depthCanvas"></canvas>
     </div>
 
     <div class="scroll-hint">
@@ -795,110 +767,6 @@
       y: -60, ease: 'none',
       scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom top', scrub: true },
     });
-
-    /* ══════════════════════════════════════════
-       DEPTH MAP PHOTO PARALLAX
-    ══════════════════════════════════════════ */
-    (function () {
-      const canvas  = document.getElementById('depthCanvas');
-      const ctx     = canvas.getContext('2d');
-
-      const RENDER_SCALE = 0.45;   // render at 45% → CSS scales up (perf)
-      const STRENGTH     = 14;     // max pixel displacement (subtle)
-      const LERP         = 0.08;   // smooth mouse follow speed
-
-      const photo = new Image();
-      const depth = new Image();
-      photo.src = 'assets/photo.png';
-      depth.src = 'assets/depth.png';
-
-      let depthData = null;
-      let rw = 0, rh = 0;
-
-      // Current & target mouse offset (-1 to 1)
-      let mx = 0, my = 0, tx = 0, ty = 0;
-      let rafId = null;
-      let needsRender = true;
-
-      // Build depth data once
-      function buildDepth() {
-        const dc  = document.createElement('canvas');
-        dc.width  = rw; dc.height = rh;
-        const dctx = dc.getContext('2d');
-        dctx.drawImage(depth, 0, 0, rw, rh);
-        depthData = dctx.getImageData(0, 0, rw, rh).data;
-      }
-
-      // Pre-read source pixels once — avoid getImageData every frame
-      let srcData = null;
-      function buildSrc() {
-        const sc  = document.createElement('canvas');
-        sc.width  = rw; sc.height = rh;
-        sc.getContext('2d').drawImage(photo, 0, 0, rw, rh);
-        srcData = sc.getContext('2d').getImageData(0, 0, rw, rh).data;
-      }
-
-      function render() {
-        rafId = requestAnimationFrame(render);
-
-        // Lerp mouse
-        const prevMx = mx, prevMy = my;
-        mx += (tx - mx) * LERP;
-        my += (ty - my) * LERP;
-
-        // Skip if no meaningful change
-        if (Math.abs(mx - prevMx) < 0.001 && Math.abs(my - prevMy) < 0.001 && !needsRender) return;
-        needsRender = false;
-
-        const out = ctx.createImageData(rw, rh);
-        const sd  = srcData;
-        const od  = out.data;
-
-        for (let y = 0; y < rh; y++) {
-          for (let x = 0; x < rw; x++) {
-            const i  = (y * rw + x) * 4;
-            const dv = depthData[i] / 255;           // 0 = far, 1 = near
-
-            const dx = Math.round(dv * STRENGTH * mx);
-            const dy = Math.round(dv * STRENGTH * my);
-
-            const sx = Math.max(0, Math.min(rw - 1, x - dx));
-            const sy = Math.max(0, Math.min(rh - 1, y - dy));
-            const si = (sy * rw + sx) * 4;
-
-            od[i]     = sd[si];
-            od[i + 1] = sd[si + 1];
-            od[i + 2] = sd[si + 2];
-            od[i + 3] = sd[si + 3];
-          }
-        }
-        ctx.putImageData(out, 0, 0);
-      }
-
-      Promise.all([
-        new Promise(r => { photo.onload = r; photo.onerror = r; }),
-        new Promise(r => { depth.onload = r; depth.onerror = r; }),
-      ]).then(() => {
-        rw = Math.round(photo.naturalWidth  * RENDER_SCALE);
-        rh = Math.round(photo.naturalHeight * RENDER_SCALE);
-        canvas.width  = rw;
-        canvas.height = rh;
-
-        buildDepth();
-        buildSrc();
-        needsRender = true;
-        render();
-      });
-
-      // Mouse tracking — only inside hero
-      const heroSection = document.getElementById('hero');
-      heroSection.addEventListener('mousemove', e => {
-        const r = heroSection.getBoundingClientRect();
-        tx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
-        ty = ((e.clientY - r.top)  / r.height - 0.5) * 2;
-      });
-      heroSection.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
-    })();
 
   </script>
 </body>
