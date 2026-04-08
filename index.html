@@ -101,7 +101,7 @@
       background: radial-gradient(circle at 60% 60%, rgba(232,200,240,.06), transparent 65%);
     }
 
-    .hero-content { max-width: 960px; position: relative; z-index: 1; }
+    .hero-content { max-width: 960px; position: relative; z-index: 2; }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -143,7 +143,7 @@
     .hero-stats {
       position: absolute; bottom: 3rem; left: 3rem;
       display: flex; gap: 3.5rem;
-      will-change: transform;
+      will-change: transform; z-index: 2;
     }
     .stat-num {
       font-size: clamp(1.8rem, 3vw, 2.8rem);
@@ -160,8 +160,10 @@
       display: flex; align-items: center; gap: .75rem;
       opacity: .3; font-size: .7rem;
       letter-spacing: .18em; text-transform: uppercase;
+      z-index: 2;
     }
     .scroll-hint-line { width: 40px; height: 1px; background: var(--text); }
+
 
     /* ── TICKER ── */
     .ticker-wrap {
@@ -295,9 +297,9 @@
       margin-bottom: 2rem;
     }
     .footer-heading {
-      font-size: clamp(3.5rem, 9vw, 9rem);
-      font-weight: 900; line-height: .95;
-      letter-spacing: -.04em;
+      font-size: clamp(2.4rem, 6vw, 7rem);
+      font-weight: 900; line-height: 1.0;
+      letter-spacing: -.04em; max-width: 900px;
     }
     .footer-heading .flip-char { display: inline-block; }
     .footer-heading .accent-word { color: var(--accent); }
@@ -374,30 +376,30 @@
     <div class="hero-content">
       <span class="hero-badge" id="heroBadge">
         <span class="badge-dot"></span>
-        Product Designer ✦ Available for work
+        E-commerce &amp; CRO Designer ✦ Retail Hub
       </span>
 
-      <h1 class="hero-title" id="heroTitle">Lorenzo ✦ is a Product Designer</h1>
+      <h1 class="hero-title" id="heroTitle">Lorenzo ✦ designs high-conversion e-commerce experiences</h1>
 
       <p class="hero-sub" id="heroSub">
-        UX/UI Design Intern at Dell Technologies — crafting user-centered solutions across global, multicultural teams with Agile methodologies.
+        I design, optimize and ship high-performing e-commerce pages — combining UX, visual design and real implementation to drive revenue.
       </p>
 
-      <a href="#cases" class="hero-cta" id="heroCta">View Case Studies ↓</a>
+      <a href="#cases" class="hero-cta" id="heroCta">View selected work ↓</a>
     </div>
 
     <div class="hero-stats" id="heroStats">
       <div class="hero-stat">
-        <div class="stat-num"><span class="count-up" data-target="2">0</span>+</div>
-        <div class="stat-label">Years experience</div>
+        <div class="stat-num"><span class="count-up" data-target="20">0</span>+</div>
+        <div class="stat-label">E-commerce projects</div>
       </div>
       <div class="hero-stat">
-        <div class="stat-num"><span class="count-up" data-target="12">0</span>+</div>
-        <div class="stat-label">Projects delivered</div>
+        <div class="stat-num"><span class="count-up" data-target="60">0</span>+</div>
+        <div class="stat-label">Pages optimized</div>
       </div>
       <div class="hero-stat">
-        <div class="stat-num"><span class="count-up" data-target="8">0</span></div>
-        <div class="stat-label">Team size avg</div>
+        <div class="stat-num" style="font-size:clamp(1rem,2vw,1.6rem);letter-spacing:-.02em">100%</div>
+        <div class="stat-label">Focus on conversion</div>
       </div>
     </div>
 
@@ -410,22 +412,20 @@
   <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-inner" id="ticker">
-      <span>Product Design</span><span class="accent">✦</span>
-      <span>UX Research</span><span class="accent">✦</span>
-      <span>Interaction Design</span><span class="accent">✦</span>
-      <span>Design Systems</span><span class="accent">✦</span>
-      <span>Prototyping</span><span class="accent">✦</span>
-      <span>Figma</span><span class="accent">✦</span>
-      <span>Agile / Scrum</span><span class="accent">✦</span>
-      <span>Dell Technologies</span><span class="accent">✦</span>
-      <span>Product Design</span><span class="accent">✦</span>
-      <span>UX Research</span><span class="accent">✦</span>
-      <span>Interaction Design</span><span class="accent">✦</span>
-      <span>Design Systems</span><span class="accent">✦</span>
-      <span>Prototyping</span><span class="accent">✦</span>
-      <span>Figma</span><span class="accent">✦</span>
-      <span>Agile / Scrum</span><span class="accent">✦</span>
-      <span>Dell Technologies</span><span class="accent">✦</span>
+      <span>E-commerce UX</span><span class="accent">✦</span>
+      <span>Conversion Rate Optimization</span><span class="accent">✦</span>
+      <span>Landing Pages</span><span class="accent">✦</span>
+      <span>Product Pages (PDP)</span><span class="accent">✦</span>
+      <span>Performance &amp; CLS</span><span class="accent">✦</span>
+      <span>Design + Implementation</span><span class="accent">✦</span>
+      <span>CMS &amp; No-code</span><span class="accent">✦</span>
+      <span>E-commerce UX</span><span class="accent">✦</span>
+      <span>Conversion Rate Optimization</span><span class="accent">✦</span>
+      <span>Landing Pages</span><span class="accent">✦</span>
+      <span>Product Pages (PDP)</span><span class="accent">✦</span>
+      <span>Performance &amp; CLS</span><span class="accent">✦</span>
+      <span>Design + Implementation</span><span class="accent">✦</span>
+      <span>CMS &amp; No-code</span><span class="accent">✦</span>
     </div>
   </div>
 
@@ -433,26 +433,27 @@
   <section class="about" id="about">
     <div class="section-label">— Know me</div>
     <h2 class="about-heading">
-      Designing with empathy, shipping with precision.
+      Designing for conversion, not just visuals.
     </h2>
 
     <div class="about-grid">
       <div>
         <p class="about-body">
-          I'm Lorenzo Machado, a product designer focused on crafting digital experiences that feel intuitive, purposeful and beautiful. Currently interning at Dell Technologies, where I collaborate with global teams to solve real user problems at scale.
+          I'm a designer focused on e-commerce experiences that actually perform. I work end-to-end — from structuring pages to implementing them — always with a strong focus on conversion, performance and scalability.
         </p>
         <p class="about-body" style="margin-top:1.2rem;">
-          My process blends rigorous UX research with a strong visual sensibility — always keeping the human at the center of every decision.
+          At Retail Hub, I design and optimize product pages, category pages and landing pages for brands, improving both user experience and business results. My work sits between design, growth and execution.
         </p>
         <div class="skills-list">
+          <span class="skill-tag">E-commerce</span>
+          <span class="skill-tag">CRO</span>
+          <span class="skill-tag">UX/UI</span>
+          <span class="skill-tag">Landing Pages</span>
+          <span class="skill-tag">PDP Optimization</span>
+          <span class="skill-tag">Performance</span>
           <span class="skill-tag">Figma</span>
-          <span class="skill-tag">UX Research</span>
-          <span class="skill-tag">Prototyping</span>
-          <span class="skill-tag">Design Systems</span>
-          <span class="skill-tag">Interaction Design</span>
-          <span class="skill-tag">Agile</span>
-          <span class="skill-tag">Visual Design</span>
-          <span class="skill-tag">Accessibility</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">CMS</span>
         </div>
       </div>
 
@@ -460,29 +461,29 @@
         <div class="service-item">
           <span class="service-num">01</span>
           <div>
-            <div class="service-title">UX / UI Design</div>
-            <div class="service-desc">End-to-end product design from research and wireframes to polished high-fidelity interfaces.</div>
+            <div class="service-title">E-commerce UX &amp; CRO</div>
+            <div class="service-desc">Design and optimization of pages focused on conversion — PDP, PLP and landing pages.</div>
           </div>
         </div>
         <div class="service-item">
           <span class="service-num">02</span>
           <div>
-            <div class="service-title">Design Systems</div>
-            <div class="service-desc">Building scalable component libraries and tokens that keep teams consistent and fast.</div>
+            <div class="service-title">Page Structuring</div>
+            <div class="service-desc">Definition of sections, hierarchy and content to maximize clarity and sales performance.</div>
           </div>
         </div>
         <div class="service-item">
           <span class="service-num">03</span>
           <div>
-            <div class="service-title">User Research</div>
-            <div class="service-desc">Qualitative and quantitative research methods to ground design decisions in real data.</div>
+            <div class="service-title">Design + Implementation</div>
+            <div class="service-desc">From Figma to production — working directly in CMS or code when needed.</div>
           </div>
         </div>
         <div class="service-item">
           <span class="service-num">04</span>
           <div>
-            <div class="service-title">Prototyping</div>
-            <div class="service-desc">Interactive prototypes that communicate ideas clearly and enable rapid iteration.</div>
+            <div class="service-title">Performance Optimization</div>
+            <div class="service-desc">Improving load speed, CLS and overall experience impacting SEO and conversion.</div>
           </div>
         </div>
       </div>
@@ -494,32 +495,32 @@
     <h2 class="cases-heading">Selected work.</h2>
     <div class="cases-list">
 
-      <div class="case-card" data-accent="200,240,220">
+      <div class="case-card" data-accent="200,240,220" onclick="window.open('https://www.taniabulhoes.com.br', '_blank')" style="cursor:pointer">
         <span class="card-num" style="color:#c8f0e8">01</span>
         <div>
-          <span class="card-tag" style="color:#c8f0e8">Dell Technologies · 2024</span>
-          <div class="card-title">Enterprise Design System</div>
-          <p class="card-desc">Unified component library used across 12+ internal tools, reducing design-to-dev handoff time by 40%.</p>
+          <span class="card-tag" style="color:#c8f0e8">Tânia Bulhões · E-commerce</span>
+          <div class="card-title">Product Page Optimization</div>
+          <p class="card-desc">Improved product pages focusing on structure, content hierarchy and conversion — balancing brand experience with performance.</p>
         </div>
         <div class="card-arrow">↗</div>
       </div>
 
-      <div class="case-card" data-accent="240,232,200">
+      <div class="case-card" data-accent="240,232,200" onclick="window.open('https://exploremode.io', '_blank')" style="cursor:pointer">
         <span class="card-num" style="color:#f0e8c8">02</span>
         <div>
-          <span class="card-tag" style="color:#f0e8c8">UX Research · 2024</span>
-          <div class="card-title">Global Onboarding Redesign</div>
-          <p class="card-desc">End-to-end redesign of the onboarding flow for a B2B SaaS platform serving 80k+ enterprise users.</p>
+          <span class="card-tag" style="color:#f0e8c8">Explore Mode · Platform</span>
+          <div class="card-title">Scalable Template System</div>
+          <p class="card-desc">Designed scalable templates for a no-code platform, enabling faster creation of high-quality e-commerce pages across multiple categories.</p>
         </div>
         <div class="card-arrow">↗</div>
       </div>
 
-      <div class="case-card" data-accent="232,200,240">
+      <div class="case-card" data-accent="232,200,240" onclick="window.open('https://www.branco.casa', '_blank')" style="cursor:pointer">
         <span class="card-num" style="color:#e8c8f0">03</span>
         <div>
-          <span class="card-tag" style="color:#e8c8f0">Mobile · 2023</span>
-          <div class="card-title">Accessibility-First Mobile App</div>
-          <p class="card-desc">Designed an inclusive mobile experience achieving WCAG 2.1 AA compliance with a 4.8★ app store rating.</p>
+          <span class="card-tag" style="color:#e8c8f0">Branco Casa · E-commerce</span>
+          <div class="card-title">Performance &amp; UX Improvements</div>
+          <p class="card-desc">Analyzed and improved page performance and layout stability, reducing friction and enhancing user experience across the site.</p>
         </div>
         <div class="card-arrow">↗</div>
       </div>
@@ -531,9 +532,9 @@
   <section class="footer" id="footer">
     <div class="footer-blob"></div>
     <div style="position:relative;z-index:1;width:100%;">
-      <div class="footer-label">Let's work together</div>
+      <div class="footer-label">Available for projects</div>
       <div class="footer-heading" id="footerHeading">
-        <span>Let's </span><span class="accent-word">Chat.</span>
+        <span>Let's build something </span><span class="accent-word">that converts.</span>
       </div>
       <div class="footer-email">lorenzomachado@email.com</div>
     </div>
@@ -767,6 +768,7 @@
       y: -60, ease: 'none',
       scrollTrigger: { trigger: '.footer', start: 'top bottom', end: 'bottom top', scrub: true },
     });
+
 
   </script>
 </body>
